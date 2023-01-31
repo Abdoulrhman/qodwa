@@ -1,0 +1,124 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es6": true,
+    "mocha": true,
+    "jest": true
+  },
+  "extends": ["react-app", "airbnb", "prettier"],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true,
+      "modules": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": ["import", "react", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "rules": {
+    "no-empty-function": "off",
+
+    "import/prefer-default-export": "off",
+    "semi": "error",
+    "object-curly-spacing": [
+      "error",
+      "always",
+      {
+        "arraysInObjects": true,
+        "objectsInObjects": true
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "tabWidth": 2,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreTrailingComments": true,
+        "ignoreComments": false
+      }
+    ],
+    "no-console": "warn",
+    "radix": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    ],
+    "react/require-default-props": "off",
+    "react/prop-types": "warn",
+    "no-unused-expressions": [
+      "warn",
+      { "allowShortCircuit": true, "allowTernary": true }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "useTabs": false,
+        "printWidth": 120,
+        "tabWidth": 2,
+        "trailingComma": "all",
+        "jsxBracketSameLine": false,
+        "bracketSpacing": true,
+        "arrowParens": "avoid",
+        "semi": true,
+        "parser": "flow",
+        "endOfLine": "auto"
+      }
+    ],
+    "no-plusplus": "off",
+    "no-else-return": ["error", { "allowElseIf": true }],
+    "no-nested-ternary": "off",
+    "no-return-assign": "off",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["accumulator"]
+      }
+    ],
+    // =============== Type Script Related ===============
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+
+    // =============== Enabled Through Type Script Only ===============
+    "no-unused-vars": "off",
+
+    "no-use-before-define": "off",
+
+    "indent": "off",
+    "import/no-extraneous-dependencies": ["error"],
+    // disable the rule for all files
+
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ]
+  },
+  "overrides": []
+}
