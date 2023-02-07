@@ -5,6 +5,7 @@ import AboutUs from 'pages/about-us';
 import Home from 'pages/home';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { pages } from 'routes/paths';
 import './App.scss';
 
 const App = () => (
@@ -12,8 +13,8 @@ const App = () => (
     <Header />
     <Main>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about-us" element={<AboutUs />} />
+        <Route path={pages.home} element={<Home />} />
+        <Route path={pages.aboutUs} element={<AboutUs />} />
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </Main>
