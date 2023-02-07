@@ -1,46 +1,93 @@
-.header {
-  padding: 10px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
+@import '../../assets/styles/_mediaQueries';
+@import '../../assets/styles/_color.scss';
+
+.navigation {
+  height: 60px;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 0px 32px;
-
-  .header__logo {
+  position: relative;
+  padding: 0.5rem 0rem;
+  background-color: $white;
+  color: black;
+  box-shadow: 0 0 10px 0 $dark;
+  .brand-name {
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    margin-inline-start: 1rem;
   }
-
-  .header__nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-
-    .header__nav-list {
+  .navigation-menu {
+    margin-inline-start: auto;
+    ul {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      list-style: none;
-      margin: 0;
       padding: 0;
+    }
+    li {
+      // removes default disc bullet for li tags and applies margin to left & right side
+      list-style-type: none;
+      margin: 0 1rem;
+      a {
+        // increases the surface area of the anchor tag to span more than just the anchor text
+        text-decoration: none;
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+  .hamburger {
+    border: 0;
+    height: 40px;
+    width: 40px;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: $primary;
+    cursor: pointer;
+    transition: background-color 0.8s ease-in-out;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    display: none;
+    &:hover {
+      background-color: $secondary;
+    }
+  }
+}
 
-      .header__nav-item {
-        font-size: 16px;
-        font-weight: bold;
-        text-transform: uppercase;
-        cursor: pointer;
-
-        .header__nav-link {
-          color: #fff;
-          text-decoration: none;
-          transition: all 0.3s ease-in-out;
-
-          &:hover {
-            color: #f00;
-          }
-        }
+@include mobile {
+  .navigation {
+    .hamburger {
+      display: block;
+    }
+  }
+  .navigation-menu {
+    &.expanded ul {
+      display: none;
+    }
+    ul {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      // stacks the li tags vertically
+      flex-direction: column;
+      // makes menu span full height and width
+      width: 100%;
+      height: calc(100vh - 77px);
+      background-color: $white;
+      border-top: 1px solid $dark;
+    }
+    li {
+      // centers link text and strips off margin
+      text-align: center;
+      margin: 0;
+      &:hover {
+        background-color: $light-pink;
+      }
+      a {
+        color: $dark;
+        width: 100%;
+        padding: 1.5rem 0;
       }
     }
   }
