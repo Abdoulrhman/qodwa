@@ -1,4 +1,10 @@
 export const pages = {
-  home: '/',
-  aboutUs: '/about-us',
+  home: {
+    path: '/',
+    title: 'Home',
+  },
+  aboutUs: {
+    path: '/about-us',
+    title: 'About Us',
+  },
 };

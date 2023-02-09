@@ -27,11 +27,12 @@
       // removes default disc bullet for li tags and applies margin to left & right side
       list-style-type: none;
       margin: 0 1rem;
-      a {
+      .nav-item {
         // increases the surface area of the anchor tag to span more than just the anchor text
         text-decoration: none;
         display: block;
         width: 100%;
+        cursor: pointer;
       }
     }
   }
@@ -84,11 +85,35 @@
       &:hover {
         background-color: $light-pink;
       }
-      a {
+      .nav-item {
         color: $dark;
         width: 100%;
         padding: 1.5rem 0;
       }
+    }
+  }
+}
+
+.dark-theme {
+  background-color: $dark-theme-black;
+  color: $white;
+  .brand-name {
+    color: $white;
+  }
+  .navigation-menu {
+    li {
+      &:hover {
+        background-color: $light-pink;
+      }
+      .nav-item {
+        color: $white;
+      }
+    }
+  }
+  .hamburger {
+    background-color: $secondary;
+    &:hover {
+      background-color: $primary;
     }
   }
 }

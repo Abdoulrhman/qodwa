@@ -1,5 +1,4 @@
 import React from 'react';
-import Toggle from 'shared/components/Toggle';
 
 const Home = () => {
   const logState = state => {
@@ -7,11 +6,7 @@ const Home = () => {
     console.log('Toggled:', state);
   };
 
-  return (
-    <div>
-      <Toggle label="Toggle me" toggled onClick={logState} />
-    </div>
-  );
+  return <div>Home</div>;
 };
 
 export default Home;

@@ -13,8 +13,8 @@ const App = () => (
     <Header />
     <Main>
       <Routes>
-        <Route path={pages.home} element={<Home />} />
-        <Route path={pages.aboutUs} element={<AboutUs />} />
+        <Route path={pages.home.path} element={<Home />} />
+        <Route path={pages.aboutUs.path} element={<AboutUs />} />
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </Main>

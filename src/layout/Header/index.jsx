@@ -1,6 +1,9 @@
 // create header component with logo and navigation links
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { pages } from 'routes/paths';
+import Toggle from 'shared/components/Toggle';
+import { ThemeContext } from 'context/theme';
 import Logo from '../../assets/images/logo.png';
 import './styles.scss';
 
@@ -9,13 +12,16 @@ const Header = () => {
   const navigate = useNavigate();
   const [isNavExpanded, setIsNavExpanded] = useState(true);
 
-  const handleNavigate = path => {
-    navigate(path);
-  };
-
   const handleToggleNav = () => {
     setIsNavExpanded(!isNavExpanded);
   };
+
+  const handleNavigate = path => {
+    navigate(path);
+    handleToggleNav();
+  };
+
+  const listOfPages = Object.keys(pages).map(page => pages[page]);
 
   return (
     <nav className="navigation">
@@ -27,15 +33,11 @@ const Header = () => {
       </button>
       <div className={isNavExpanded ? 'navigation-menu expanded' : 'navigation-menu'}>
         <ul>
-          <li>
-            <a href="/home">About Us</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
+          {listOfPages.map(page => (
+            <li key={page.path} onClick={() => handleNavigate(page.path)} aria-hidden>
+              <p className="nav-item">{page.title}</p>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
