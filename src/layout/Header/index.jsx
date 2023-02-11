@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { pages } from 'routes/paths';
 import Toggle from 'shared/components/Toggle';
 import { ThemeContext } from 'context/theme';
+import { IcMoon, IcSun } from 'icons';
 import Logo from '../../assets/images/logo.png';
 import './styles.scss';
 
@@ -11,6 +12,7 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isNavExpanded, setIsNavExpanded] = useState(true);
+  const { useDarkTheme, setUseDarkTheme } = useContext(ThemeContext);
 
   const handleToggleNav = () => {
     setIsNavExpanded(!isNavExpanded);
@@ -38,6 +40,10 @@ const Header = () => {
               <p className="nav-item">{page.title}</p>
             </li>
           ))}
+          <li className="toggle-item">
+            <Toggle label="Dark Mode" toggled={useDarkTheme} onClick={() => setUseDarkTheme(!useDarkTheme)} />
+            {useDarkTheme ? <IcMoon /> : <IcSun />}
+          </li>
         </ul>
       </div>
     </nav>

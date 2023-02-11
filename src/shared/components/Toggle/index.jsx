@@ -3,7 +3,7 @@ import Prototypes from 'prop-types';
 
 import './styles.scss';
 
-const Toggle = ({ label, toggled, onClick }) => {
+const Toggle = ({ toggled, onClick }) => {
   const [isToggled, toggle] = useState(toggled);
 
   const callback = () => {
@@ -15,7 +15,6 @@ const Toggle = ({ label, toggled, onClick }) => {
     <label htmlFor="toggle">
       <input type="checkbox" defaultChecked={isToggled} onClick={callback} id="toggle" />
       <span />
-      <strong>{label}</strong>
     </label>
   );
 };
@@ -23,7 +22,6 @@ const Toggle = ({ label, toggled, onClick }) => {
 export default Toggle;
 
 Toggle.propTypes = {
-  label: Prototypes.string.isRequired,
   toggled: Prototypes.bool,
   onClick: Prototypes.func,
 };

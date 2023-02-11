@@ -21,7 +21,13 @@
     margin-inline-start: auto;
     ul {
       display: flex;
+      align-items: center;
       padding: 0;
+      .toggle-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
     }
     li {
       // removes default disc bullet for li tags and applies margin to left & right side
@@ -95,6 +101,10 @@
 }
 
 .dark-theme {
+  .navigation {
+    background-color: $dark-theme-black;
+    color: $white;
+  }
   background-color: $dark-theme-black;
   color: $white;
   .brand-name {
@@ -102,8 +112,9 @@
   }
   .navigation-menu {
     li {
+      color: $white;
       &:hover {
-        background-color: $light-pink;
+        background-color: unset;
       }
       .nav-item {
         color: $white;
